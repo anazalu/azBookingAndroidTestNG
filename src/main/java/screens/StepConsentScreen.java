@@ -1,4 +1,4 @@
-package pages;
+package screens;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -11,23 +11,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import util.GlobalVariables;
 
-public class StepWelcomePage {
+public class StepConsentScreen {
 
     protected AndroidDriver driver;
 
     @AndroidFindBy(id = "com.booking:id/gdpr_consent_description_scroll_view")
-    private RemoteWebElement stepWelcomePageContainer;
+    private RemoteWebElement stepConsentScreenContainer;
 
     @AndroidFindBy(id = "com.booking:id/bt_accept")
     private RemoteWebElement acceptButton;
 
-    public StepWelcomePage(AndroidDriver driver) {
+    public StepConsentScreen(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    public boolean stepWelcomePageLoaded() {
-        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(stepWelcomePageContainer)).isDisplayed();
+    public boolean stepConsentScreenLoaded() {
+        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(stepConsentScreenContainer)).isDisplayed();
     }
 
     public void clickAcceptButton() {

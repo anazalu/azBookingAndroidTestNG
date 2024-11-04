@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import pages.*;
+import screens.*;
 
 public class DriverSetup extends ConfigReader {
 
@@ -19,16 +19,10 @@ public class DriverSetup extends ConfigReader {
     protected Helpers helpers;
 //    protected RestAssuredUtility restAssuredUtility;
 
-//    protected StepTrackingPage stepTrackingPage;
 //    protected LoginHomePage loginHomePage;
-    protected StepWelcomePage stepWelcomePage;
-//    protected StepSearchPage stepSearchPage;
-//    protected StepPriceAlertsPage stepPriceAlertsPage;
-//    protected StepCurrencyPage stepCurrencyPage;
-//    protected StepHomeAirportPage stepHomeAirportPage;
+    protected StepConsentScreen stepConsentScreen;
+    protected StepNotificationsScreen stepNotificationsScreen;
 //    protected SearchPage searchPage;
-//    protected ProfilePage profilePage;
-//    protected FeedbackPage feedbackPage;
 
     @BeforeMethod
     public void setUp() {
@@ -51,16 +45,9 @@ public class DriverSetup extends ConfigReader {
         helpers = new Helpers();
 //        restAssuredUtility = new RestAssuredUtility();
 
-//        stepTrackingPage = new StepTrackingPage(driver);
-//        loginHomePage = new LoginHomePage(driver);
-        stepWelcomePage = new StepWelcomePage(driver);
-//        stepSearchPage = new StepSearchPage(driver);
-//        stepPriceAlertsPage = new StepPriceAlertsPage(driver);
-//        stepCurrencyPage = new StepCurrencyPage(driver);
-//        stepHomeAirportPage = new StepHomeAirportPage(driver);
+        stepConsentScreen = new StepConsentScreen(driver);
+        stepNotificationsScreen = new StepNotificationsScreen(driver);
 //        searchPage = new SearchPage(driver);
-//        profilePage = new ProfilePage(driver);
-//        feedbackPage = new FeedbackPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

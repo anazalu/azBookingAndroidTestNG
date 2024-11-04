@@ -13,8 +13,11 @@ public class ViewGeniusLevelTest extends DriverSetup {
     @Test(testName = "View Genius Level test")
     public void viewGeniusLevelTest() throws InterruptedException {
 
-        Assert.assertTrue(stepWelcomePage.stepWelcomePageLoaded(), "Step welcome page is not loaded");
+        Assert.assertTrue(stepConsentScreen.stepConsentScreenLoaded(), "Step consent screen is not loaded");
 
-        stepWelcomePage.clickAcceptButton();
+        stepConsentScreen.clickAcceptButton();
+        Assert.assertTrue(stepNotificationsScreen.stepNotificationsScreenLoaded(), "Step notifications screen is not loaded");
+
+        stepNotificationsScreen.tapNotNowButton();
     }
 }
