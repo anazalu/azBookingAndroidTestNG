@@ -17,11 +17,11 @@ public class DriverSetup extends ConfigReader {
     public static AndroidDriver driver;
 
     protected Helpers helpers;
-//    protected RestAssuredUtility restAssuredUtility;
 
 //    protected LoginHomePage loginHomePage;
     protected StepConsentScreen stepConsentScreen;
     protected StepNotificationsScreen stepNotificationsScreen;
+    protected StepSignInScreen stepSignInScreen;
 //    protected SearchPage searchPage;
 
     @BeforeMethod
@@ -43,10 +43,10 @@ public class DriverSetup extends ConfigReader {
         }
 
         helpers = new Helpers();
-//        restAssuredUtility = new RestAssuredUtility();
 
         stepConsentScreen = new StepConsentScreen(driver);
         stepNotificationsScreen = new StepNotificationsScreen(driver);
+        stepSignInScreen = new StepSignInScreen(driver);
 //        searchPage = new SearchPage(driver);
     }
 

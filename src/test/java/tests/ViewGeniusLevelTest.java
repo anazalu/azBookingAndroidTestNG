@@ -19,5 +19,8 @@ public class ViewGeniusLevelTest extends DriverSetup {
         Assert.assertTrue(stepNotificationsScreen.stepNotificationsScreenLoaded(), "Step notifications screen is not loaded");
 
         stepNotificationsScreen.tapNotNowButton();
+        Assert.assertTrue(stepSignInScreen.stepSignInScreenLoaded(), "Step sign in screen is not loaded");
+
+        stepSignInScreen.tapCrossButton();
     }
 }
