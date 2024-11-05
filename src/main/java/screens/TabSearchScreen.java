@@ -12,23 +12,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import util.GlobalVariables;
 import util.Helpers;
 
-public class StepSignInToSaveScreen extends Helpers {
+public class TabSearchScreen {
 
     protected AndroidDriver driver;
 
-    @AndroidFindBy(id = "com.booking:id/facet_with_bottom_sheet_header_drag_line")
-    private RemoteWebElement stepSignInToSaveScreenTopBar;
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Enter your destination\")")
+    private RemoteWebElement tabSearchScreenDestinationField;
 
-    public StepSignInToSaveScreen(AndroidDriver driver) {
+    @AndroidFindBy(accessibility = "Sign in")
+    private RemoteWebElement signInTabButton;
+
+    public TabSearchScreen(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    public boolean stepSignInToSaveScreenLoaded() {
-        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(stepSignInToSaveScreenTopBar)).isDisplayed();
+    public boolean tabSearchScreenLoaded() {
+        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(tabSearchScreenDestinationField)).isDisplayed();
     }
 
-    public void tapOutOfSignInToSaveScreen() {
-        tapOnCoordinates(driver, 50, 100);
+    public void tapOnSignInTab() {
+        signInTabButton.click();
     }
 }

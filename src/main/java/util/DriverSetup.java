@@ -18,12 +18,12 @@ public class DriverSetup extends ConfigReader {
 
     protected Helpers helpers;
 
-//    protected LoginHomePage loginHomePage;
     protected StepConsentScreen stepConsentScreen;
     protected StepNotificationsScreen stepNotificationsScreen;
     protected StepSignInScreen stepSignInScreen;
     protected StepSignInToSaveScreen stepSignInToSaveScreen;
-//    protected SearchPage searchPage;
+    protected TabSearchScreen tabSearchScreen;
+    protected TabSignInScreen tabSignInScreen;
 
     @BeforeMethod
     public void setUp() {
@@ -49,7 +49,8 @@ public class DriverSetup extends ConfigReader {
         stepNotificationsScreen = new StepNotificationsScreen(driver);
         stepSignInScreen = new StepSignInScreen(driver);
         stepSignInToSaveScreen = new StepSignInToSaveScreen(driver);
-//        searchPage = new SearchPage(driver);
+        tabSearchScreen = new TabSearchScreen(driver);
+        tabSignInScreen = new TabSignInScreen(driver);
     }
 
     @AfterMethod(alwaysRun = true)

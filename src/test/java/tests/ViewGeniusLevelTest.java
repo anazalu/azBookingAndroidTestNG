@@ -22,8 +22,15 @@ public class ViewGeniusLevelTest extends DriverSetup {
         Assert.assertTrue(stepSignInScreen.stepSignInScreenLoaded(), "Step sign in screen is not loaded");
 
         stepSignInScreen.tapCrossButton();
-//        Assert.assertTrue(stepSignInToSaveScreen.stepSignInToSaveScreenLoaded(), "Step sign in to save screen is not loaded");
+        Assert.assertTrue(stepSignInToSaveScreen.stepSignInToSaveScreenLoaded(), "Step sign in to save money screen is not loaded");
 
         stepSignInToSaveScreen.tapOutOfSignInToSaveScreen();
+//        Assert.assertTrue(tabSearchScreen.tabSearchScreenLoaded(), "Tab search screen is not loaded");
+
+        tabSearchScreen.tapOnSignInTab();
+        Assert.assertTrue(tabSignInScreen.tabSignInScreenLoaded(), "Tab sign in screen is not loaded");
+        Assert.assertTrue(tabSignInScreen.userIsNotLoggedIn(), "User is logged in");
+
+        tabSignInScreen.tapOnGenius();
     }
 }
