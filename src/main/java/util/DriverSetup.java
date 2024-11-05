@@ -22,6 +22,7 @@ public class DriverSetup extends ConfigReader {
     protected StepConsentScreen stepConsentScreen;
     protected StepNotificationsScreen stepNotificationsScreen;
     protected StepSignInScreen stepSignInScreen;
+    protected StepSignInToSaveScreen stepSignInToSaveScreen;
 //    protected SearchPage searchPage;
 
     @BeforeMethod
@@ -47,6 +48,7 @@ public class DriverSetup extends ConfigReader {
         stepConsentScreen = new StepConsentScreen(driver);
         stepNotificationsScreen = new StepNotificationsScreen(driver);
         stepSignInScreen = new StepSignInScreen(driver);
+        stepSignInToSaveScreen = new StepSignInToSaveScreen(driver);
 //        searchPage = new SearchPage(driver);
     }
 
