@@ -4,7 +4,8 @@
 <suite name="Android Regression Suite">
     <test verbose="2" name="Android Regression">
         <classes>
-            <class name="tests.ViewGeniusLevelTest"/>
+<!--            <class name="tests.ViewGeniusLevelTest"/>-->
+            <class name="tests.SaveTravelTest"/>
         </classes>
     </test>
 </suite>

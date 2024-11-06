@@ -30,5 +30,6 @@ public class StepSignInToSaveScreen extends Helpers {
 
     public void tapOutOfSignInToSaveScreen() {
         tapOnCoordinates(driver, 50, 100);
+//        tapOnCoordinates(driver, .....screen.width * 0.05, heights * 0.05);
     }
 }

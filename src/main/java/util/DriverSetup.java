@@ -24,6 +24,9 @@ public class DriverSetup extends ConfigReader {
     protected StepSignInToSaveScreen stepSignInToSaveScreen;
     protected TabSearchScreen tabSearchScreen;
     protected TabSignInScreen tabSignInScreen;
+    protected GeniusScreen geniusScreen;
+    protected DiscoverNewLevelsScreen discoverNewLevelsScreen;
+    protected SelectDestinationScreen selectDestinationScreen;
 
     @BeforeMethod
     public void setUp() {
@@ -51,6 +54,9 @@ public class DriverSetup extends ConfigReader {
         stepSignInToSaveScreen = new StepSignInToSaveScreen(driver);
         tabSearchScreen = new TabSearchScreen(driver);
         tabSignInScreen = new TabSignInScreen(driver);
+        geniusScreen = new GeniusScreen(driver);
+        discoverNewLevelsScreen = new DiscoverNewLevelsScreen(driver);
+        selectDestinationScreen = new SelectDestinationScreen(driver);
     }
 
     @AfterMethod(alwaysRun = true)

@@ -5,6 +5,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,11 +17,23 @@ public class TabSearchScreen {
 
     protected AndroidDriver driver;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Enter your destination\")")
-    private RemoteWebElement tabSearchScreenDestinationField;
+    @AndroidFindBy(uiAutomator = "com.booking:id/facet_index_section_search_view_item")
+    private RemoteWebElement searchOptionsContainer;
+
+    @AndroidFindBy(accessibility = "Enter your destination")
+    private RemoteWebElement destinationTextField;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").instance(3)")
+    private RemoteWebElement searchButton;
+
+    @AndroidFindBy(accessibility = "Search")
+    private RemoteWebElement searchTab;
+
+    @AndroidFindBy(accessibility = "Saved")
+    private RemoteWebElement savedTab;
 
     @AndroidFindBy(accessibility = "Sign in")
-    private RemoteWebElement signInTabButton;
+    private RemoteWebElement signInTab;
 
     public TabSearchScreen(AndroidDriver driver) {
         this.driver = driver;
@@ -28,10 +41,28 @@ public class TabSearchScreen {
     }
 
     public boolean tabSearchScreenLoaded() {
-        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(tabSearchScreenDestinationField)).isDisplayed();
+        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(searchOptionsContainer)).isDisplayed();
     }
 
+    public boolean searchTabNotClickable() {
+        try {
+            new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(searchTab));
+            new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.elementToBeClickable(searchTab));
+            return false;
+        } catch (Exception e) {
+            return true;
+        }
+    }
+
+    public void goToDestinationSelectionScreen() {
+        destinationTextField.click();
+    }
+
+//    public void enterDatesText(String travelDates) {
+//        datesTextField.sendKeys(travelDates);
+//    }
+
     public void tapOnSignInTab() {
-        signInTabButton.click();
+        signInTab.click();
     }
 }

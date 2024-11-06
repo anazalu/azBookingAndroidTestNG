@@ -10,9 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import util.GlobalVariables;
-import util.Helpers;
 
-public class TabSignInScreen extends Helpers {
+public class TabSignInScreen {
 
     protected AndroidDriver driver;
 
@@ -39,7 +38,6 @@ public class TabSignInScreen extends Helpers {
     }
 
     public void tapOnGenius() {
-        scrollToElementWithText(driver, "Genius loyalty program");
         geniusButton.click();
     }
 }

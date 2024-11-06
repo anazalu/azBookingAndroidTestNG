@@ -16,6 +16,18 @@ public class Helpers {
                 ".scrollIntoView(new UiSelector().text(\"" + text + "\").instance(0));"));
     }
 
+//    public void scrollToElementWithId(AndroidDriver driver, String id) {
+//        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList()" +
+//                ".scrollIntoView(new UiSelector().resourceId(\"" + id + "\").instance(0));")).click();
+//    }
+
+    public void scrollToElementWithId(AndroidDriver driver, String id) {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator(
+                "new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList()" +
+                        ".scrollIntoView(new UiSelector().resourceId(\"" + id + "\"));"
+        ));
+    }
+
     public static void tapOnCoordinates(AndroidDriver driver, int x, int y) {
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence sequence = new Sequence(finger, 1)
@@ -24,6 +36,5 @@ public class Helpers {
                 .addAction(new Pause(finger, Duration.ofMillis(150)))
                 .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Collections.singletonList(sequence));
-        System.out.println("Tap with Coordinates");
     }
 }

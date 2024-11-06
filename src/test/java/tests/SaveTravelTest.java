@@ -1,14 +1,13 @@
 package tests;
 
+import data.SaveTravelTestData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import util.DriverSetup;
+public class SaveTravelTest extends SaveTravelTestData {
 
-public class ViewGeniusLevelTest extends DriverSetup {
-
-    @Test(testName = "View Genius Level test")
-    public void viewGeniusLevelTest() throws InterruptedException {
+    @Test(testName = "Save travel dates and destination test", dataProvider = "dates_data")
+    public void saveTravelTest(String datesData) throws InterruptedException {
 
         Assert.assertTrue(stepConsentScreen.stepConsentScreenLoaded(), "Step consent screen is not loaded");
 
@@ -25,16 +24,9 @@ public class ViewGeniusLevelTest extends DriverSetup {
 //        Assert.assertTrue(tabSearchScreen.tabSearchScreenLoaded(), "Tab search screen is not loaded");
 //        Assert.assertTrue(tabSearchScreen.searchTabNotClickable(), "Search tab can be clicked");
 
-        tabSearchScreen.tapOnSignInTab();
-        Assert.assertTrue(tabSignInScreen.tabSignInScreenLoaded(), "Tab sign in screen is not loaded");
-        Assert.assertTrue(tabSignInScreen.userIsNotLoggedIn(), "User is logged in");
+        tabSearchScreen.goToDestinationSelectionScreen();
+        Assert.assertTrue(selectDestinationScreen.selectDestinationScreenLoaded(), "Select destination screen is not loaded");
 
-        tabSignInScreen.tapOnGenius();
-        Assert.assertTrue(geniusScreen.geniusScreenInitialViewTitleLoaded(), "Genius screen is not loaded");
-
-        geniusScreen.tapOnAboutGeniusLevelsButton();
-        Assert.assertTrue(discoverNewLevelsScreen.discoverNewLevelsScreenLoaded(), "Discover new levels screen is not loaded");
-
-        discoverNewLevelsScreen.tapGotItButton();
+//        tabSearchScreen.enterDatesText(datesData);
     }
 }
