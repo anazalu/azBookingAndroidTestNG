@@ -27,6 +27,10 @@ public class DriverSetup extends ConfigReader {
     protected GeniusScreen geniusScreen;
     protected DiscoverNewLevelsScreen discoverNewLevelsScreen;
     protected SelectDestinationScreen selectDestinationScreen;
+    protected SelectDatesScreen selectDatesScreen;
+    protected SelectRoomsAndGuestsScreen selectRoomsAndGuestsScreen;
+    protected SearchResultsScreen searchResultsScreen;
+    protected AccommodationScreen accommodationScreen;
 
     @BeforeMethod
     public void setUp() {
@@ -57,6 +61,10 @@ public class DriverSetup extends ConfigReader {
         geniusScreen = new GeniusScreen(driver);
         discoverNewLevelsScreen = new DiscoverNewLevelsScreen(driver);
         selectDestinationScreen = new SelectDestinationScreen(driver);
+        selectDatesScreen = new SelectDatesScreen(driver);
+        selectRoomsAndGuestsScreen = new SelectRoomsAndGuestsScreen(driver);
+        searchResultsScreen = new SearchResultsScreen(driver);
+        accommodationScreen = new AccommodationScreen(driver);
     }
 
     @AfterMethod(alwaysRun = true)

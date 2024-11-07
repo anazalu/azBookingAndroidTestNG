@@ -23,6 +23,9 @@ public class TabSearchScreen {
     @AndroidFindBy(accessibility = "Enter your destination")
     private RemoteWebElement destinationTextField;
 
+    @AndroidFindBy(accessibility = "1 room · 2 adults · 0 children")
+    private RemoteWebElement roomsAndGuestsTextField;
+
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").instance(3)")
     private RemoteWebElement searchButton;
 
@@ -58,9 +61,17 @@ public class TabSearchScreen {
         destinationTextField.click();
     }
 
-//    public void enterDatesText(String travelDates) {
-//        datesTextField.sendKeys(travelDates);
-//    }
+    public void goToRoomsAndGuestsScreen() {
+        roomsAndGuestsTextField.click();
+    }
+
+    public void tapOnSearchButton() {
+        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+    }
+
+    public void tapOnSavedTab() {
+        savedTab.click();
+    }
 
     public void tapOnSignInTab() {
         signInTab.click();
