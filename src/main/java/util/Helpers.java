@@ -16,17 +16,16 @@ public class Helpers {
                 ".scrollIntoView(new UiSelector().text(\"" + text + "\").instance(0));"));
     }
 
-//    public void scrollToElementWithId(AndroidDriver driver, String id) {
-//        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList()" +
-//                ".scrollIntoView(new UiSelector().resourceId(\"" + id + "\").instance(0));")).click();
-//    }
-
-    public void scrollToElementWithId(AndroidDriver driver, String id) {
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator(
-                "new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList()" +
-                        ".scrollIntoView(new UiSelector().resourceId(\"" + id + "\"));"
-        ));
+    public void scrollToElementByUIAuto(AndroidDriver driver) {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList()" +
+                ".scrollIntoView(new UiSelector().resourceId(" + "\"com.booking:id/benefit_root_view\"" + ").instance(0)).instance(0));"));
     }
+//
+//    public void scrollToElementWithTextOPTION(AndroidDriver driver, String text) {
+//        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
+//                ".scrollIntoView(new UiSelector().text(\"" + text + "\").instance(0))"
+//        ));
+//    }
 
     public static void tapOnCoordinates(AndroidDriver driver, int x, int y) {
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");

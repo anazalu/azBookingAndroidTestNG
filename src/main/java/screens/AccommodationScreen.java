@@ -16,12 +16,18 @@ import util.GlobalVariables;
 public class AccommodationScreen {
 
     protected AndroidDriver driver;
+//
+//    @AndroidFindBy(accessibility = "Add to list")
+//    private RemoteWebElement addToSavedButton;
 
-    @AndroidFindBy(accessibility = "Add to list")
+    @AndroidFindBy(id = "com.booking:id/menu_favorites")
     private RemoteWebElement addToSavedButton;
 
     @AndroidFindBy(id = "com.booking:id/toolbar_title_textView")
     private RemoteWebElement accommodationName;
+
+//    @AndroidFindBy(id = "com.booking:id/toolbar_subtitle_textView")
+//    private RemoteWebElement travelDates;
 
     @AndroidFindBy(accessibility = "Navigate up")
     private RemoteWebElement backButton;
@@ -38,6 +44,10 @@ public class AccommodationScreen {
     public String getAccommodationNameText() {
         return accommodationName.getText();
     }
+
+//    public String getTravelDatesText() {
+//        return travelDates.getText();
+//    }
 
     public void addToSaved() {
         addToSavedButton.click();

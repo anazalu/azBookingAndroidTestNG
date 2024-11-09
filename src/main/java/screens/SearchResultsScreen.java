@@ -39,6 +39,10 @@ public class SearchResultsScreen {
         return destinationText.getText();
     }
 
+    public String getDatesText() {
+        return datesText.getText();
+    }
+
     public void goToFirstAccommodationScreen(){
         WebElement element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.ViewGroup\").instance(13)"));
         new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(element)).click();

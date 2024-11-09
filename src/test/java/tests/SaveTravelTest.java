@@ -49,17 +49,26 @@ public class SaveTravelTest extends SaveTravelTestData {
         Assert.assertTrue(searchResultsScreen.searchResultsScreenLoaded());
         Assert.assertEquals(searchResultsScreen.getDestinationText().toLowerCase(), "skopje", "Destination text mismatch");
 //        WIP - assert dates match
+        String actualDates = searchResultsScreen.getDatesText();
+        System.out.println(dateStartData + dateEndData + actualDates);
 
         searchResultsScreen.goToFirstAccommodationScreen();
-        Assert.assertTrue(accommodationScreen.accommodationScreenLoaded());
+        Assert.assertTrue(accommodationScreen.accommodationScreenLoaded(), "Accommodation screen not loaded");
 
-        String expectedAccommodationName =  accommodationScreen.getAccommodationNameText();
-        System.out.println(expectedAccommodationName);
+        String expectedAccommodationName = accommodationScreen.getAccommodationNameText();
+        System.out.println("expected item: " + expectedAccommodationName);
+
         accommodationScreen.addToSaved();
         accommodationScreen.tapOnBackButton();
         Assert.assertTrue(searchResultsScreen.searchResultsScreenLoaded());
+
         searchResultsScreen.tapOnBackButton();
 //        Assert.assertTrue(tabSearchScreen.tabSearchScreenLoaded(), "Search screen not loaded");
         tabSearchScreen.tapOnSavedTab();
+        Assert.assertTrue(savedItemsScreen.savedItemsScreenLoaded(), "Saved items screen not loaded");
+
+        String actualAccommodationName = savedItemsScreen.getSavedAccommodationNameText();
+        System.out.println("actual item: " + actualAccommodationName);
+        Assert.assertEquals(actualAccommodationName.toLowerCase(), expectedAccommodationName.toLowerCase(), "Saved item name mismatch");
     }
 }
