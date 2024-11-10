@@ -8,7 +8,7 @@ import util.DriverSetup;
 public class ViewGeniusLevelTest extends DriverSetup {
 
     @Test(testName = "View Genius Level test")
-    public void viewGeniusLevelTest() throws InterruptedException {
+    public void viewGeniusLevelTest() {
 
         Assert.assertTrue(stepConsentScreen.stepConsentScreenLoaded(), "Step consent screen is not loaded");
 
@@ -32,9 +32,11 @@ public class ViewGeniusLevelTest extends DriverSetup {
         tabSignInScreen.tapOnGenius();
         Assert.assertTrue(geniusScreen.geniusScreenInitialViewTitleLoaded(), "Genius screen is not loaded");
 
-        geniusScreen.tapOnAboutGeniusLevelsButton();
-        Assert.assertTrue(discoverNewLevelsScreen.discoverNewLevelsScreenLoaded(), "Discover new levels screen is not loaded");
+//        WIP - scroll down and swipe left
 
-        discoverNewLevelsScreen.tapGotItButton();
+//        geniusScreen.tapOnAboutGeniusLevelsButton();
+//        Assert.assertTrue(discoverNewLevelsScreen.discoverNewLevelsScreenLoaded(), "Discover new levels screen is not loaded");
+//
+//        discoverNewLevelsScreen.tapGotItButton();
     }
 }

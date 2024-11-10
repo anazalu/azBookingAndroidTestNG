@@ -46,7 +46,7 @@ public class GeniusScreen extends Helpers {
     public void tapOnAboutGeniusLevelsButton() {
 //        scrollToElementWithText(driver, "About Genius Levels");
 //        scrollToElementWithTextOPTION(driver, "About Genius Levels");
-        scrollToElementByUIAuto(driver);
+        scrollTo(driver, aboutGeniusLevelsButton, Directions.DOWN, 5);
         aboutGeniusLevelsButton.click();
     }
 

@@ -26,13 +26,16 @@ public class SearchResultsScreen {
     @AndroidFindBy(accessibility = "Navigate up")
     private RemoteWebElement backButton;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Sort\")")
+    private RemoteWebElement sortButtonText;
+
     public SearchResultsScreen(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public boolean searchResultsScreenLoaded() {
-        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(backButton)).isDisplayed();
+        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(sortButtonText)).isDisplayed();
     }
 
     public String getDestinationText() {

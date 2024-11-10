@@ -23,7 +23,6 @@ public class SelectRoomsAndGuestsScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.booking:id/bui_input_stepper_add_button\").instance(0)")
     private RemoteWebElement addRoomsButton;
 
-//    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.booking:id/bui_input_stepper_buttons_block\").instance(1)")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.booking:id/bui_input_stepper_add_button\").instance(1)")
     private RemoteWebElement addGuestsButton;
 

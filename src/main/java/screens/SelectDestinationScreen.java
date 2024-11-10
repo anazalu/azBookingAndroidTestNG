@@ -20,9 +20,6 @@ public class SelectDestinationScreen {
     @AndroidFindBy(id = "com.booking:id/facet_with_bui_free_search_booking_header_toolbar_content")
     private RemoteWebElement selectDestinationTextfield;
 
-//    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(1)")
-//    private RemoteWebElement firstSearchResult;
-
     public SelectDestinationScreen(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -35,10 +32,6 @@ public class SelectDestinationScreen {
     public void enterDestinationText() {
         selectDestinationTextfield.sendKeys("Skopje");
     }
-
-//    public boolean firstSearchResultLoaded() {
-//        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(firstSearchResult)).isDisplayed();
-//    }
 
     public void selectFirstResult() {
         String uiAutomatorExpression = "new UiSelector().className(\"android.view.ViewGroup\").instance(1)";
