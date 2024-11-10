@@ -56,3 +56,7 @@ build/
 .DS_Store
 
 src/main/java/screens/temp.txt
+
+### Reports ###
+allure-results/
+screenshots/

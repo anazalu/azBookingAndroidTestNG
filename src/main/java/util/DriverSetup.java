@@ -10,8 +10,10 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.testng.annotations.Listeners;
 import screens.*;
 
+@Listeners({ITestListenerUtility.class})
 public class DriverSetup extends ConfigReader {
 
     public static AndroidDriver driver;

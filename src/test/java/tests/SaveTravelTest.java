@@ -1,11 +1,19 @@
 package tests;
 
 import data.SaveTravelTestData;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Epic("Mobile automation Booking app testing")
+@Feature("Save items")
 public class SaveTravelTest extends SaveTravelTestData {
 
+    @Story("Successful search for accommodation and saving search results")
+    @Description("Save items")
     @Test(testName = "Save travel dates and destination test", dataProvider = "dates_data")
     public void saveTravelTest(String dateStartData, String dateEndData) throws InterruptedException {
 
