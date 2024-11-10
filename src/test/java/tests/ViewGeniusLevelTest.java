@@ -1,10 +1,14 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import util.DriverSetup;
 
+@Epic("Mobile automation Booking app testing")
+@Feature("Genius levels")
 public class ViewGeniusLevelTest extends DriverSetup {
 
     @Test(testName = "View Genius Level test")
