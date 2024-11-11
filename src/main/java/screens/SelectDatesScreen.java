@@ -32,10 +32,8 @@ public class SelectDatesScreen {
 
     @Step("Select dates")
     public void selectDates(String startDate, String endDate) {
-        WebElement elementStart = driver.findElement(AppiumBy.accessibilityId(startDate));
-        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(elementStart)).click();
-        WebElement elementEnd = driver.findElement(AppiumBy.accessibilityId(endDate));
-        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(elementEnd)).click();
+        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.accessibilityId(startDate))).click();
+        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.accessibilityId(endDate))).click();
     }
 
     public void tapOnSelectDatesButton() {

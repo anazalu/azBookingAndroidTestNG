@@ -2,6 +2,7 @@ package util;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
@@ -50,8 +51,15 @@ public class Helpers {
 
     public void scrollTo(AndroidDriver driver, WebElement element, Directions directions, int swipeCount) {
         IntStream.range(0, swipeCount).forEach(obj -> {
-            if (!element.isDisplayed())
+            System.out.println("Swiping...");
+            try {
+                if (!element.isDisplayed()) {
+                    System.out.println("Element not visible");
+                }
+            } catch (NoSuchElementException e) {
                 swipeVertically(driver, directions);
+                System.out.println("Exception");
+            }
         });
     }
 
@@ -60,7 +68,7 @@ public class Helpers {
         Sequence sequence = new Sequence(finger, 1)
                 .addAction(finger.createPointerMove(ZERO, viewport(), x, y))
                 .addAction(finger.createPointerDown(LEFT.asArg()))
-                .addAction(new Pause(finger, Duration.ofMillis(150)))
+                .addAction(new Pause(finger, Duration.ofMillis(250)))
                 .addAction(finger.createPointerUp(LEFT.asArg()));
         driver.perform(Collections.singletonList(sequence));
     }

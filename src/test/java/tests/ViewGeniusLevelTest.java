@@ -12,7 +12,7 @@ import util.DriverSetup;
 public class ViewGeniusLevelTest extends DriverSetup {
 
     @Test(testName = "View Genius Level test")
-    public void viewGeniusLevelTest() {
+    public void viewGeniusLevelTest() throws Exception {
 
         Assert.assertTrue(stepConsentScreen.stepConsentScreenLoaded(), "Step consent screen is not loaded");
 
@@ -26,6 +26,7 @@ public class ViewGeniusLevelTest extends DriverSetup {
         Assert.assertTrue(stepSignInToSaveScreen.stepSignInToSaveScreenLoaded(), "Step sign in to save money screen is not loaded");
 
         stepSignInToSaveScreen.tapOutOfSignInToSaveScreen();
+//        driver.wait(1000);
 //        Assert.assertTrue(tabSearchScreen.tabSearchScreenLoaded(), "Tab search screen is not loaded");
 //        Assert.assertTrue(tabSearchScreen.searchTabNotClickable(), "Search tab can be clicked");
 
@@ -36,11 +37,13 @@ public class ViewGeniusLevelTest extends DriverSetup {
         tabSignInScreen.tapOnGenius();
         Assert.assertTrue(geniusScreen.geniusScreenInitialViewTitleLoaded(), "Genius screen is not loaded");
 
-//        WIP - scroll down and swipe left
+        geniusScreen.tapOnAboutGeniusLevelsButton();
+        Assert.assertTrue(discoverNewLevelsScreen.discoverNewLevelsScreenLoaded(), "Discover new levels screen is not loaded");
 
-//        geniusScreen.tapOnAboutGeniusLevelsButton();
-//        Assert.assertTrue(discoverNewLevelsScreen.discoverNewLevelsScreenLoaded(), "Discover new levels screen is not loaded");
-//
-//        discoverNewLevelsScreen.tapGotItButton();
+        // WIP - scroll horizontally to level 3
+
+        discoverNewLevelsScreen.tapGotItButton();
+
+        geniusScreen.tapOnBackButton();
     }
 }

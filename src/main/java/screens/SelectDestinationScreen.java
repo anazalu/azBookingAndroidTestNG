@@ -35,7 +35,6 @@ public class SelectDestinationScreen {
 
     public void selectFirstResult() {
         String uiAutomatorExpression = "new UiSelector().className(\"android.view.ViewGroup\").instance(1)";
-        WebElement element = driver.findElement(AppiumBy.androidUIAutomator(uiAutomatorExpression));
-        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(element)).click();
+        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.androidUIAutomator(uiAutomatorExpression))).click();
     }
 }

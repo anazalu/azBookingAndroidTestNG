@@ -49,8 +49,8 @@ public class SearchResultsScreen {
 
     @Step("Go to accommodation screen")
     public void goToFirstAccommodationScreen(){
-        WebElement element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.ViewGroup\").instance(13)"));
-        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(element)).click();
+        String elementText = "new UiSelector().className(\"android.view.ViewGroup\").instance(13)";
+        new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.androidUIAutomator(elementText))).click();
     }
 
     public void tapOnBackButton() {

@@ -28,6 +28,9 @@ public class GeniusScreen extends Helpers {
     @AndroidFindBy(id = "com.booking:id/genius_see_all_levels")
     private RemoteWebElement aboutGeniusLevelsButton;
 
+    @AndroidFindBy(id = "com.booking:id/action_button")
+    private RemoteWebElement gotItButton;
+
     @AndroidFindBy(accessibility = "Navigate up")
     private RemoteWebElement backButton;
 
@@ -48,7 +51,7 @@ public class GeniusScreen extends Helpers {
     public void tapOnAboutGeniusLevelsButton() {
 //        scrollToElementWithText(driver, "About Genius Levels");
 //        scrollToElementWithTextOPTION(driver, "About Genius Levels");
-        scrollTo(driver, aboutGeniusLevelsButton, Directions.DOWN, 5);
+        scrollTo(driver, aboutGeniusLevelsButton, Directions.UP, 5);
         aboutGeniusLevelsButton.click();
     }
 
