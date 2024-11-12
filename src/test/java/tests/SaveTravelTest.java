@@ -30,7 +30,7 @@ public class SaveTravelTest extends SaveTravelTestData {
 
         stepSignInToSaveScreen.tapOutOfSignInToSaveScreen();
 //        Assert.assertTrue(tabSearchScreen.tabSearchScreenLoaded(), "Tab search screen is not loaded");
-//        Assert.assertTrue(tabSearchScreen.searchTabNotClickable(), "Search tab can be clicked");
+//        Assert.assertTrue(tabSearchScreen.searchTa    bNotClickable(), "Search tab can be clicked");
 
         tabSearchScreen.goToDestinationSelectionScreen();
         Assert.assertTrue(selectDestinationScreen.selectDestinationScreenLoaded(), "Select destination screen is not loaded");

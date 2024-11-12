@@ -32,6 +32,7 @@ public class SavedItemsScreen {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(screenTitle)).isDisplayed();
     }
 
+    @Step("Confirmed the name of the saved item")
     public String getSavedAccommodationNameText() {
         return savedAccommodationText.getText();
     }
