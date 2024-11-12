@@ -49,13 +49,9 @@ public class GeniusScreen extends Helpers {
     }
 
     public void tapOnAboutGeniusLevelsButton() {
-//        scrollToElementWithText(driver, "About Genius Levels");
-//        scrollToElementWithTextOPTION(driver, "About Genius Levels");
         scrollTo(driver, aboutGeniusLevelsButton, Directions.UP, 5);
         aboutGeniusLevelsButton.click();
     }
-
-//    WIP swipe to level 3
 
     public void tapOnBackButton() {
         backButton.click();

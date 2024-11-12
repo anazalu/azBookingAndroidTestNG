@@ -36,8 +36,8 @@ public class SearchResultsScreen {
     }
 
     public boolean searchResultsScreenLoaded() {
-//        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(sortButtonText)).isDisplayed();
-        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(backButton)).isDisplayed();
+        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(sortButtonText)).isDisplayed();
+//        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(backButton)).isDisplayed();
     }
 
     public String getDestinationText() {

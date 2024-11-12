@@ -26,9 +26,7 @@ public class ViewGeniusLevelTest extends DriverSetup {
         Assert.assertTrue(stepSignInToSaveScreen.stepSignInToSaveScreenLoaded(), "Step sign in to save money screen is not loaded");
 
         stepSignInToSaveScreen.tapOutOfSignInToSaveScreen();
-//        driver.wait(1000);
 //        Assert.assertTrue(tabSearchScreen.tabSearchScreenLoaded(), "Tab search screen is not loaded");
-//        Assert.assertTrue(tabSearchScreen.searchTabNotClickable(), "Search tab can be clicked");
 
         tabSearchScreen.tapOnSignInTab();
         Assert.assertTrue(tabSignInScreen.tabSignInScreenLoaded(), "Tab sign in screen is not loaded");
@@ -40,7 +38,8 @@ public class ViewGeniusLevelTest extends DriverSetup {
         geniusScreen.tapOnAboutGeniusLevelsButton();
         Assert.assertTrue(discoverNewLevelsScreen.discoverNewLevelsScreenLoaded(), "Discover new levels screen is not loaded");
 
-        // WIP - scroll horizontally to level 3
+        discoverNewLevelsScreen.swipeToLevelThree();
+        Assert.assertTrue(discoverNewLevelsScreen.levelTreeTextLoaded(), "Genius Level 3 text not loaded");
 
         discoverNewLevelsScreen.tapGotItButton();
 

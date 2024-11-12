@@ -24,7 +24,9 @@ public class Helpers {
 
     public enum Directions {
         UP,
-        DOWN
+        DOWN,
+        LEFT,
+        RIGHT
     }
 
     private final PointerInput FINGER = new PointerInput(TOUCH, "finger");
@@ -59,6 +61,42 @@ public class Helpers {
             } catch (NoSuchElementException e) {
                 swipeVertically(driver, directions);
                 System.out.println("Exception");
+            }
+        });
+    }
+
+    // WIP ===============================
+    public void swipeHorizontally(AndroidDriver driver, Directions directions) {
+        int startX = driver.manage().window().getSize().getWidth() / 2;
+        int startY = (int) (driver.manage().window().getSize().getHeight() * 0.75 );
+
+        int endX;
+
+        switch (directions) {
+            case LEFT -> endX = (int) (driver.manage().window().getSize().getWidth() * 0.2);
+            case RIGHT -> endX = (int) (driver.manage().window().getSize().getWidth() * 0.8);
+            default -> throw new IllegalArgumentException("Invalid direction selected:" + directions);
+        }
+
+        Sequence swipe = new Sequence(FINGER, 0);
+        swipe.addAction(FINGER.createPointerMove(ZERO, viewport(), startX, startY));
+        swipe.addAction(FINGER.createPointerDown(LEFT.asArg()));
+        swipe.addAction(FINGER.createPointerMove(ofSeconds(1), viewport(), endX, startY));
+        swipe.addAction(FINGER.createPointerUp(LEFT.asArg()));
+        driver.perform(List.of(swipe));
+    }
+
+    // WIP ===============================
+    public void scrollHorizontallyTo(AndroidDriver driver, WebElement element, Directions directions, int swipeCount) {
+        IntStream.range(0, swipeCount).forEach(obj -> {
+            System.out.println("Swiping... " + directions.toString());
+            try {
+                if (!element.isDisplayed()) {
+                    System.out.println("Element not visible");
+                }
+            } catch (NoSuchElementException e) {
+                swipeHorizontally(driver, directions);
+                System.out.println("Scrolling " + directions.toString());
             }
         });
     }

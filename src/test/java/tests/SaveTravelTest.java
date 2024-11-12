@@ -68,7 +68,7 @@ public class SaveTravelTest extends SaveTravelTestData {
 
         accommodationScreen.addToSaved();
         accommodationScreen.tapOnBackButton();
-//        Assert.assertTrue(searchResultsScreen.searchResultsScreenLoaded());
+        Assert.assertTrue(searchResultsScreen.searchResultsScreenLoaded());
 
         searchResultsScreen.tapOnBackButton();
 //        Assert.assertTrue(tabSearchScreen.tabSearchScreenLoaded(), "Search screen not loaded");

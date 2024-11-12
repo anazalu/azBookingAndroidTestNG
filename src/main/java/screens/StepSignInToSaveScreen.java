@@ -32,5 +32,6 @@ public class StepSignInToSaveScreen extends Helpers {
         int coordX = (int) Math.round(driver.manage().window().getSize().getWidth() * 0.04);
         int coordY = (int) Math.round(driver.manage().window().getSize().getHeight() * 0.04);
         tapOnCoordinates(driver, coordX, coordY);
+        tapOnCoordinates(driver, coordX, coordY);
     }
 }

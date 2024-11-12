@@ -10,8 +10,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import util.GlobalVariables;
+import util.Helpers;
 
-public class DiscoverNewLevelsScreen {
+public class DiscoverNewLevelsScreen extends Helpers {
 
     protected AndroidDriver driver;
 
@@ -21,6 +22,9 @@ public class DiscoverNewLevelsScreen {
     @AndroidFindBy(id = "com.booking:id/action_button")
     private RemoteWebElement gotItButton;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Genius Level 3\")")
+    private RemoteWebElement levelThreeText;
+
     public DiscoverNewLevelsScreen(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -28,6 +32,14 @@ public class DiscoverNewLevelsScreen {
 
     public boolean discoverNewLevelsScreenLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(discoverNewLevelsScreenText)).isDisplayed();
+    }
+
+    public void swipeToLevelThree() {
+        scrollHorizontallyTo(driver, levelThreeText, Directions.LEFT, 5);
+    }
+
+    public boolean levelTreeTextLoaded() {
+        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(levelThreeText)).isDisplayed();
     }
 
     public void tapGotItButton() {
